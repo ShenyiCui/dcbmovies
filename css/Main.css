@@ -1,0 +1,48 @@
+.dropdown{
+	background-color: aqua;
+	width:4%;
+	height:100vh; 
+    position: absolute;
+    left:0px;
+	top:0px;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left:0px;
+	top:0px;
+	height:100vh;
+	background-color: azure;
+	width:400%;	
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.show {
+	display:block;
+	-webkit-animation: myfirst 1s 1; /* Safari 4.0 - 8.0 */
+    animation: myfirst 1s 1;
+}
+.hide {display:none;}
+
+@-webkit-keyframes myfirst {
+    0%   { left: -100px; top: 0px;}
+    25%  { left: 10px; top: 0px;}
+
+}
+
+@keyframes myfirst {
+    0%   {left: -200px; top: 0px;}
+}
