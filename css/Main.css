@@ -77,22 +77,66 @@ body {
 .menuHeader
 {
   position: relative;
-
 }
 
 .show {
 	display:block;
-	-webkit-animation: myfirst 1s 1; /* Safari 4.0 - 8.0 */
-    animation: myfirst 1s 1;
+	-webkit-animation: goOut 1s 1; /* Safari 4.0 - 8.0 */
+    animation: goOut 1s 1;
 }
-.hide {display:none;}
-
-@-webkit-keyframes myfirst {
-    0%   { left: -100px; top: 0px;}
-    25%  { left: 10px; top: 0px;}
-
+.hide {
+	display:block;
 }
 
-@keyframes myfirst {
-    0%   {left: -200px; top: 0px;}
+@-webkit-keyframes goOut {
+    0%   { left: -300%; top: 0%;}
+}
+@keyframes goOut {
+    0%   {left: -300%; top: 0%;}
+}
+
+div.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 69%;
+    background: #f1f1f1;
+}
+
+div.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+div.example button:hover {
+    background: #0b7dda;
+}
+
+div.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.TitleCard
+{
+	position: absolute;
+	top:0%;
+	right:0%;
+	background-color: #0b7dda;
+	height:8vh;
+	width:96%;
+	z-index: -1;
+	color: white;
+	display:flex;
+    align-items: center;
+    justify-content: center;
 }
