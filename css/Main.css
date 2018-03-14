@@ -12,16 +12,18 @@
 
 body {
 	font-family: "Helvetica Neue" sans-serif;
+    background-color:#AFB7BF;
 }
 
 .dropdown-content h1
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: "Helvetica Neue";
+    color: whitesmoke;
 }
 
 
 .dropdown{
-	background-color: aqua;
+	background-color: #091730;
 	width:4%;
 	height:100vh; 
     position: absolute;
@@ -40,17 +42,18 @@ body {
     left:0px;
 	top:0px;
 	height:100vh;
-	background-color: azure;
+	background-color: #091730;
 	width:400%;	
 }
 
 .dropdown-content a {
-    color: black;
+    color: white;
     padding: 12px 16px;
     display: block;
 	text-decoration: none;
-	background-color:antiquewhite;
+	background-color:#4F5D6B;
 	border: 0.5px solid black;
+    font-weight:100;
 
 }
 
