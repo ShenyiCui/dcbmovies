@@ -1,14 +1,14 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Helvetica Neue";
-  src: url(Fonts/helveticaneue/HelveticaNeueLt.ttf);
+  src: url(../Fonts/helveticaneue/HelveticaNeue Light.ttf)
   }
 * {
     font-family: "Helvetica Neue";
     line-height: 120%;
   }
 
- @import url('https://fonts.googleapis.com/css?family=Oswald:400,600');
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,600');
 
 body {
 	font-family: "Helvetica Neue" sans-serif;
@@ -225,7 +225,7 @@ img {vertical-align: middle;}
 	position: absolute;
 	width:50%;
 	color:white;
-	height:41.8vh;
+	height:100%;
 	top:0%;
 	right:0%;
 	background-color:rgba(67,72,102,0.95);
