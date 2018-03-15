@@ -78,6 +78,8 @@ body {
 {
   position: relative;
   height: 8vh;
+  text-align: center;
+  align-content: center;
 }
 
 .show {
@@ -132,7 +134,7 @@ div.example::after {
 	position: absolute;
 	top:0%;
 	right:0%;
-	background-color: #AFB7BF;
+	background-color: #104F55;
 	height:8vh;
 	width:96%;
 	z-index: -1;
