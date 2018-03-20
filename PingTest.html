@@ -3,32 +3,30 @@
 <head>
 <meta charset="utf-8">
 <title>Untitled Document</title>
-<script src="jquery.js"></script>
+<script src="js/jquery.js"></script>
 </head>
-
 <body>
 	<script>
-		doesConnectionExist();
-	    function doesConnectionExist() {
-		var xhr = new XMLHttpRequest();
-		var file = "https://myschool.dulwich-beijing.cn/pluginfile.php/44288/mod_book/chapter/78/Y8%20Thank%20You%20Sorry%20I%20Love%20You%20streaming.mp4";
-		var randomNum = Math.round(Math.random() * 10000);
+		$.ajax({
+        url: "https://dcbmovies.github.io/PingTest.html",
+        context: document.body,
+        success: function(s,x){
 
-		xhr.open("HEAD", file + "?rand=" + randomNum, true);
-		xhr.send();
+            $('html[manifest=saveappoffline.appcache]').attr('content', '');
+                $(this).html(s);
+        }
+		});
+		
+		var img = new Image();   // Create new image element
+		img.src = 'https://myschool.dulwich-beijing.cn/pluginfile.php/41814/course/section/5555/IMG_4742%255b2%255d.jpg'	
+		
+		img.onload = function(){
+		  alert("You are logged into Myschool")
+		};
+		img.onerror = function() {
+		  alert("You are not logged into Myschool")
+		};
 
-		xhr.addEventListener("readystatechange", processRequest, false);
-
-		function processRequest(e) {
-		  if (xhr.readyState == 4) {
-			if (xhr.status >= 200 && xhr.status < 304) {
-			  alert("connection exists!");
-			} else {
-			  alert("connection doesn't exist!");
-			}
-		  }
-		}
-	}
 	</script>
 </body>
 </html>
