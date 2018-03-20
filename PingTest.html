@@ -7,15 +7,18 @@
 </head>
 <body>
 	<script>
-		$.ajax({
-        url: "https://dcbmovies.github.io/PingTest.html",
-        context: document.body,
-        success: function(s,x){
+		$( document ).ready(function() {	
+			$.ajax({
+			url: "https://dcbmovies.github.io",
+			context: document.body,
+			success: function(s,x){
 
             $('html[manifest=saveappoffline.appcache]').attr('content', '');
                 $(this).html(s);
-        }
+			}
+			});
 		});
+		
 		
 		var img = new Image();   // Create new image element
 		img.src = 'https://myschool.dulwich-beijing.cn/pluginfile.php/41814/course/section/5555/IMG_4742%255b2%255d.jpg'	
