@@ -32,3 +32,13 @@ function hideMenu()
       }
     }
 }
+setInterval(function areULoggedIn()
+		{
+			var img = new Image();   // Create new image element
+			var d=new Date();
+			img.src="https://myschool.dulwich-beijing.cn/pluginfile.php/41814/course/section/5555/IMG_4742%255b2%255d.jpg?"+d.getTime();
+
+			img.onError = function(){
+			  location.href = "/index.html";
+			};
+		},1000)

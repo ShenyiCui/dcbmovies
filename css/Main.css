@@ -280,3 +280,47 @@ img {vertical-align: middle;}
 	right:0%;
 	left: 0%;
 }
+
+.BackgroundColor
+{
+	width:100%;
+	height:100vh;
+	background-color:rgba(67,72,102,0.5);
+	position:absolute;
+	left: 0px;
+	right:0px;
+	top:0px;
+}
+.loginMsg
+{
+	z-index:1;
+	position: absolute;
+	background-color: white;
+	width:50%;
+	height:30%;
+	right:25%;
+	top:35%;
+}
+.LogIn
+{
+    border: none;
+    color: white;
+    padding: 8px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+	background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+
+
+.LogIn:hover {
+    background-color: #008CBA;
+    color: white;
+}
