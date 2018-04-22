@@ -13,8 +13,8 @@
 body {
 	font-family: "Helvetica Neue" sans-serif;
     background-color:#AFB7BF;
-	margin-top: 4.6%;
-	margin-left: 4%;
+	margin-top: 27.5%;
+	margin-left: 8%;
 }
 
 .dropdown-content h1
@@ -138,8 +138,22 @@ div.example::after {
 	top:0%;
 	right:0%;
 	background-color: #104F55;
-	height:8vh;
+	height:8%;
 	width:96%;
+	z-index: -1;
+	color: white;
+	display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.TitleCard2
+{
+	position: absolute;
+	top:0%;
+	right:0%;
+	background-color: #104F55;
+	height:8%;
+	width:100%;
 	z-index: -1;
 	color: white;
 	display:flex;
@@ -323,4 +337,60 @@ img {vertical-align: middle;}
 .LogIn:hover {
     background-color: #008CBA;
     color: white;
+}
+.PosterArea img
+{
+	width:12.5%;
+	padding-right: 5%;
+	padding-top: 1%;
+	cursor: pointer;
+
+}
+.container
+{
+	color: white;
+	background-color:#008CBA;
+	padding: 0.8% 4%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom:4px;   
+	border: 2px solid #008CBA;
+
+}
+.video
+{
+	position: absolute;
+	top:5em;
+	left: 50%;
+	margin-left: -38%;
+}
+.video video
+{
+	width: 85%;
+	height: 550px;
+}
+.VidInfo
+{
+	position: absolute;
+	top:40em;
+	left: 50%;
+	margin-left: -38%;
+	background-color: white;
+	width:74.8%;	
+	height: 39%;
+}
+.VidInfo img
+{
+	position: absolute;
+	left:1%;
+	top:5%;
+	width:20%;
+}
+
+.VidInfo h4
+{
+	position: relative;
+	left: 30%;
 }
