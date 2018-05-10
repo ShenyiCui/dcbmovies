@@ -31,6 +31,7 @@ body {
     position: fixed;
     left:0px;
 	top:0px;
+	z-index: 5;
 }
 
 .dropbtn {
@@ -46,7 +47,7 @@ body {
 	height:100vh;
 	background-color: rgb(16,40,63);
 	width:400%;	
-	z-index: 3;
+	z-index: 5;
 }
 
 .dropdown-content a {
@@ -171,7 +172,7 @@ img {vertical-align: middle;}
   top:8vh;
   right:0%;
   left: 4%;
-  z-index: -1;
+  z-index:3;
   margin: auto;
 }
 
@@ -259,7 +260,7 @@ img {vertical-align: middle;}
 	margin-bottom: 2%;
 }
 
-.BannerTag button
+.BannerTag a
 {
 	background-color: rgb(16,40,63); 
     border: none;
@@ -275,6 +276,10 @@ img {vertical-align: middle;}
 	bottom: 0%;
 	right:0%;
 	left: 0%;
+}
+.BannerTag a:hover
+{
+	background-color: rgba(16,40,64,0.50); 
 }
 
 .BannerTag button:hover
@@ -338,16 +343,30 @@ img {vertical-align: middle;}
     background-color: #008CBA;
     color: white;
 }
+.PosterArea
+{
+	position:absolute;
+	top:58%;
+	left:7%;
+	width:90%;
+	background-color: white;
+	height:300px;
+}
 .PosterArea img
 {
-	width:12.5%;
+	
+	width:20%;
 	padding-right: 5%;
+	padding-left: 2.5%;
 	padding-top: 1%;
 	cursor: pointer;
 
 }
 .container
 {
+	position: absolute;
+	left:2.5%;
+	top:5%;
 	color: white;
 	background-color:#008CBA;
 	padding: 0.8% 4%;
