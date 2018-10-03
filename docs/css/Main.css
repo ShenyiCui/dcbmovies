@@ -304,14 +304,14 @@ img {vertical-align: middle;}
 	border-top-left-radius: 22px;
 	border-top-right-radius: 22px;
 	color: white;
-	background-color:rgba(176,176,176,1.00);
+	background-color:#008CBA;
 	padding: 0.8% 4%;
     text-align: left;
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
     margin-bottom:4px;   
-	border: 2px solid rgba(176,176,176,1.00);
+	border: 2px solid #008CBA;
 
 }
 .video
