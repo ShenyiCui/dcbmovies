@@ -253,8 +253,8 @@ img {vertical-align: middle;}
 }
 .LogIn
 {
-    border: none;
-    color: white;
+    border: solid black 1px;
+    color: black;
     padding: 8px 40px;
     text-align: center;
     text-decoration: none;
