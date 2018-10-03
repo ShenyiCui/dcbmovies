@@ -23,28 +23,18 @@
 	<div class="BackgroundColor">
 		<div class="loginMsg">
 			<center>
-				<h1>Welcome To DCBSTUDIOS</h1>
+				<h1>WELCOME TO DCBSTUDIOS</h1>
 				<h3>It looks like you're not logged into MySchool<br>Log in now to access</h3>
 				<button class="LogIn" onClick="MySchool();">Log In</button>
 			</center>
 		</div>
 	</div>
 	<script>
-		
 		var imgInti = new Image();   // Create new image element
-		var dInti=new Date();
-		imgInti.src="https://myschool.dulwich-beijing.cn/pluginfile.php/13403/mod_label/intro/calendar1.PNG?"+dInti.getTime();
-
-		imgInti.onload = function(){
-			 location.href = "homePage.html";
-		};
-		
+		var dInti=new Date();		
 		setInterval(function areULoggedIn()
 		{
-			var img = new Image();   // Create new image element
-			var d=new Date();
-			img.src="https://myschool.dulwich-beijing.cn/pluginfile.php/13403/mod_label/intro/calendar1.PNG?"+d.getTime();
-
+			imgInti.src="https://myschool.dulwich-beijing.cn/pluginfile.php/1/theme_titus/pageheaderimage/1538197502/IMG_5399.JPG?"+dInti.getTime();
 			img.onload = function(){
 			  location.href = "homePage.html";
 			};
