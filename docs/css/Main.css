@@ -83,7 +83,7 @@ div.example::after {
 	top:0%;
 	right:0%;
 	background-color: rgb(158,20,34);
-	height:60px;
+	height:70px;
 	width:100%;
 	z-index: 1;
 	color: white;
@@ -114,13 +114,13 @@ div.example::after {
 .MainPageSlides img
 {
 	width:100%;
-	height: 40%;
+	height: 41%;
 }
 img {vertical-align: middle;}
 /* Slideshow container */
 .slideshow-container {
   position: absolute;
-  top:60px;
+  top:70px;
   z-index:3;
   margin: auto;
 }
@@ -170,7 +170,7 @@ img {vertical-align: middle;}
 	position: absolute;
 	width:50%;
 	color:white;
-	height:102%;
+	height:101%;
 	top:0%;
 	right:0%;
 	background-color:rgba(67,72,102,0.95);
@@ -275,12 +275,13 @@ img {vertical-align: middle;}
 .PosterArea
 {
 	position:absolute;
-	top:55%;
+	top:85%;
 	width:90%;
 	left:5%;
 	background-color: white;
 	border-radius: 25px;
 	height:300px;
+	border: solid 2px black;
 }
 .PosterArea img
 {
@@ -295,17 +296,22 @@ img {vertical-align: middle;}
 .container
 {
 	position: absolute;
-	left:2.5%;
-	top:5%;
+	left:0%;
+	top:0;
+	right:0;
+	width: 100%;
+	z-index: 1;
+	border-top-left-radius: 22px;
+	border-top-right-radius: 22px;
 	color: white;
-	background-color:#008CBA;
+	background-color:rgba(176,176,176,1.00);
 	padding: 0.8% 4%;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom:4px;   
-	border: 2px solid #008CBA;
+	border: 2px solid rgba(176,176,176,1.00);
 
 }
 .video
