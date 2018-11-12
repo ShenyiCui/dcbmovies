@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Login</title>
+<script src="js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="css/Main.css">
+</head>
+
+<style>
+	body
+	{
+		background: url("img/Login Background.jpg") no-repeat center center fixed;
+		background-size: cover; 
+		-ms-background-size: cover; 
+		-o-background-size: cover; 
+		-moz-background-size: cover; 
+		-webkit-background-size: cover; 
+	}
+</style>
+
+<body>
+	<div class="BackgroundColor">
+		<div class="loginMsg">
+			<center>
+				<h1>WELCOME TO DCBSTUDIOS</h1>
+				<h3>It looks like you're not logged into MySchool<br>Log in now to access</h3>
+				<button class="LogIn" onClick="MySchool();">Log In</button>
+			</center>
+		</div>
+	</div>
+	<script>
+		var imgInti = new Image();   // Create new image element
+		var dInti=new Date();		
+		setInterval(function areULoggedIn()
+		{
+			imgInti.src="https://myschool.dulwich-beijing.cn/pluginfile.php/1/theme_titus/pageheaderimage/1538197502/IMG_5399.JPG?"+dInti.getTime();
+			imgInti.onload = function(){
+			  location.href = "homePage.html";
+			};
+		},1000)
+		
+		function MySchool()
+		{
+			window.open("https://myschool.dulwich-beijing.cn/login/index.php")
+		}
+		
+	</script>
+</body>
+</html> 

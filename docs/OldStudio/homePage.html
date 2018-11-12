@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DCB STUDIOS</title>
+	<script src="js/afterglow.min.js"></script>
+	<script src="js/MAIN.js"></script>
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/Main.css">
+	<link rel="stylesheet" type="text/css" href="css/W3Style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="TitleCard">
+		<h1>&nbsp;&nbsp;DCB STUDIOS</h1>
+		<input type="text" name="search" placeholder="Search..">
+	</div>
+	<div class="slideshow-container">
+
+		<div class="MainPageSlides">
+		  <div class="BannerCard">
+			<a href=""><img src="img/Banners/Default Banner.png"></a>
+			<div class="BannerTag">
+				<div class="BannerText">
+					<h1 align="center">The Dying Swan</h1>
+					<center>
+					<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero nulla, interdum eget libero ut, luctus posuere nisi. Ut commodo ante odio, at faucibus mi sodales id. Aenean facilisis porttitor dictum. Aenean risus lorem, sagittis id dignissim vitae, mattis eget erat. Aliquam diam ipsum, feugiat eget blandit in, consectetur sed sapien. Phasellus placerat turpis ex, vel interdum risus hendrerit et. Proin mauris velit, mollis vel lacinia ut, viverra nec lorem.</p>
+					<br>
+					</center>
+				</div>
+				<a href="Players/Chinese Film Fest 2018/The Dying Swan.html" class="dontSwitch">Watch!</a>
+			</div>
+		  </div>
+		</div>
+
+		<div class="MainPageSlides">
+		  <div class="BannerCard">
+			<a href=""><img src="img/Banners/Default Banner.png"></a>
+			<div class="BannerTag">
+				<div class="BannerText">
+					<h1 align="center">Thank You, Sorry, I Love You</h1>
+					<center>
+					<p align="justify">People saying those 3 words repeatly for like 2 minutes</p>
+					<br>
+					</center>
+				</div>
+				<a href="Players/Chinese Film Fest 2018/Thank You Sorry I Love You.html" class="dontSwitch">Watch!</a>
+			</div>
+		  </div>
+		</div>
+
+		<div class="MainPageSlides">
+		  <div class="BannerCard">
+			<a href=""><img src="img/Banners/Default Banner.png"></a>
+			<div class="BannerTag">
+				<div class="BannerText">
+					<h1 align="center">The First Love</h1>
+					<center>
+					<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero nulla, interdum eget libero ut, luctus posuere nisi. Ut commodo ante odio, at faucibus mi sodales id. Aenean facilisis porttitor dictum. Aenean risus lorem, sagittis id dignissim vitae, mattis eget erat. Aliquam diam ipsum, feugiat eget blandit in, consectetur sed sapien. Phasellus placerat turpis ex, vel interdum risus hendrerit et. Proin mauris velit, mollis vel lacinia ut, viverra nec lorem.</p>
+					<br>
+					</center>
+				</div>
+				<a href="Players/Chinese Film Fest 2018/The First Love.html" class="dontSwitch">Watch!</a>
+			</div>
+		  </div>
+		</div>
+
+		<div class="MainPageSlides">
+		  <div class="BannerCard">
+			<a href=""><img src="img/Banners/Default Banner.png"></a>
+			<div class="BannerTag">
+				<div class="BannerText">
+					<h1 align="center">The Reason For Trying</h1>
+					<center>
+					<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero nulla, interdum eget libero ut, luctus posuere nisi. Ut commodo ante odio, at faucibus mi sodales id. Aenean facilisis porttitor dictum. Aenean risus lorem, sagittis id dignissim vitae, mattis eget erat. Aliquam diam ipsum, feugiat eget blandit in, consectetur sed sapien. Phasellus placerat turpis ex, vel interdum risus hendrerit et. Proin mauris velit, mollis vel lacinia ut, viverra nec lorem.</p>
+					<br>
+					</center>
+				</div>
+				<a href="Players/Chinese Film Fest 2018/The Reason For Trying.html" class="dontSwitch">Watch!</a>
+			</div>
+		  </div>
+		</div>
+	</div>
+	<div class="PosterArea">
+		<div class="container">Recently Released</div>
+		<br><br><br>
+		<div class="recentlyReleased">
+			<a href="Players/Chinese Film Fest 2018/The Dying Swan.html"><img src="img/Posters/CNY Fest/The Dying Swan.jpg"></a>
+			<a href="Players/Chinese Film Fest 2018/Thank You Sorry I Love You.html"><img src="img/Posters/CNY Fest/Thank You Sorry I Love You.jpg"></a>
+			<a href="Players/Chinese Film Fest 2018/The First Love.html"><img src="img/Posters/CNY Fest/The First Love.jpg"></a>
+			<a href="Players/Chinese Film Fest 2018/The Reason For Trying.html"><img src="img/Posters/CNY Fest/The Reason for Trying.jpg"></a>
+		</div>
+	</div>
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+<script> //Slideshow Code
+	$(document).ready(function() 
+	{
+		$('.BannerCard,.BannerTag,.dontSwitch,.BannerText').hover(function() {
+			clearTimeout(interval);
+		},
+		function() {
+			interval = setTimeout(showSlides, 4000);
+		 });
+	});
+	
+	var slideIndex = 0;
+	var interval;
+	showSlides();
+	function showSlides() 
+	{
+		var i;
+		var slides = document.getElementsByClassName("MainPageSlides");
+		for (i = 0; i < slides.length; i++) {
+		   slides[i].style.display = "none";  
+		}
+		slideIndex++;
+		if (slideIndex > slides.length) {slideIndex = 1}    
+		slides[slideIndex-1].style.display = "block";  
+		clearTimeout(interval);
+		interval = setTimeout(showSlides, 4000);
+	}
+</script>
+</html>
