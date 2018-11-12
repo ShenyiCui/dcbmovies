@@ -7,7 +7,7 @@
    		<!-- Bootstrap CSS -->
    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   	   	<!--Own CSS File Main From Local Repo-->
-   		<link rel="stylesheet" href="CSS/Main.css">
+   		<link rel="stylesheet" href="../CSS/Main.css">
   		<!-- Fonts from Google Fonts -->
    		<!-- Used For Paragraphs-->
    		<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700" rel="stylesheet">
@@ -17,48 +17,9 @@
    		<title>DCBSTUDIOS</title>
   	</head>
   	
- 	<style>
-		.jumbotron
-		{
-			background-color: rgba(256,256,256,0.6);
-		}
-		body
-		{
-			background: url("Images/Background/PopcornGlasses.jpg") no-repeat center center fixed;
-			background-size: cover; 
-			-ms-background-size: cover; 
-			-o-background-size: cover; 
-			-moz-background-size: cover; 
-			-webkit-background-size: cover; 
-			overflow-y: hidden;
-		}
- 	 </style>
-  
- 	<body>
-		<div id="top"></div>
-		<br><br><br><br><br><br><br><br><br>
-		<div class="container" id="TitleCard">
-			<div class="text-center jumbotron ">	
-				<h1 class="FancyTitle">DCB STUDIOS</h1>
-				<em><p class="ParagraphFont">Boundless Creativity</p></em>
-				<br>
-				<button type="button" class="btn btn-outline-primary btn-lg" id="enterSite" onClick="loginInterval();">Enter Site</button>
-			</div>
-		</div>
-
-		<br><br><br><br><br><br><br><br><br><br>
-		<div id="frontPageLogin" class="container login load-hidden">
-			<div class="jumbotron">	
-				<i class="fa fa-caret-left fa-lg text-left cursor" aria-hidden="true" id="backToTitle" onClick="stopTimer();"></i>
-				<div class="text-center">
-					<h1 class="FancyTitle">MYSCHOOL LOGIN</h1>
-					<em><p class="ParagraphFont">If you are already logged in you will be redirected shortly...</p></em>
-					<br>
-					<button type="button" class="btn btn-outline-primary btn-lg" onClick="MySchool();">Login Now</button>
-				</div>
-			</div>
-		</div>
-		<br><br><br><br><br><br><br>
+	<body>
+		<div id="navBar"></div>
+		
 
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -66,10 +27,11 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/scrollreveal"></script>
-		<script src="JavaScript/MAIN.js" crossorigin="anonymous"></script>
-		
-		
-  </body>
-  
+		<script src="../JavaScript/MAIN.js" crossorigin="anonymous"></script>
+	</body>
+	
+ 	<script>
+		$("#navBar").load("../DynamicLoadHTML/mainNav.html")
+	</script>
   		
 </html>

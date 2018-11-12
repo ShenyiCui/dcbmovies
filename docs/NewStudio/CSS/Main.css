@@ -1,6 +1,11 @@
+@font-face {
+    font-family: 'copper-hewitt';
+    src: url('/docs/NewStudio/CSS/Fonts/cooper-hewitt/CooperHewitt-Semibold.otf');
+}
+
 .FancyTitle
 {
-	font-family: 'Pacifico', cursive;
+	font-family: 'copper-hewitt';
 }
 .ParagraphFont
 {
