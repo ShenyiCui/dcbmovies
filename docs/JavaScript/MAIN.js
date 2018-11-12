@@ -35,7 +35,7 @@ function loginInterval()
 		};
 	},1000)
 }
-function loginInterval()
+function loginInterval2()
 {
 	homeIntervalTimer = setInterval(function areULoggedIn()
 	{
