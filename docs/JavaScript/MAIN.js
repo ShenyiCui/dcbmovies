@@ -22,6 +22,7 @@ $( document ).ready(function() {
 })
 
 var intervalTimer;
+var homeIntervalTimer;
 function loginInterval()
 {
 	intervalTimer = setInterval(function areULoggedIn()
@@ -31,6 +32,18 @@ function loginInterval()
 		imgInti.src="https://myschool.dulwich-beijing.cn/pluginfile.php/41814/course/section/5555/IMG230.jpg?"+dInti.getTime();
 		imgInti.onload = function(){
 		 	self.location = "Pages/Home.html"
+		};
+	},1000)
+}
+function loginInterval()
+{
+	homeIntervalTimer = setInterval(function areULoggedIn()
+	{
+		var imgInti = new Image();   // Create new image element
+		var dInti=new Date();
+		imgInti.src="https://myschool.dulwich-beijing.cn/pluginfile.php/41814/course/section/5555/IMG230.jpg?"+dInti.getTime();
+		imgInti.onerror = function(){
+		 	self.location = "/dcbmovies/index.html"
 		};
 	},1000)
 }
