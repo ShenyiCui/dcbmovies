@@ -105,7 +105,7 @@ function openSearch()
 function PopulateDatabase()
 {
 	$("#MainSearchBar").val("");
-	jQuery.get('MovieDatabase.csv', function(data) // getting the file
+	jQuery.get('/dcbmovies/Pages/MovieDatabase.csv', function(data) // getting the file
 	{     
 		var movie_data = data.split(/\r?\n|\r/);
 		var table_data = '<table class="table table-bordered table-striped whiteColorTable table-hover">';
@@ -161,6 +161,20 @@ function categorySearch(category)
 		$("#movieData tr").filter(function() {
 			$(this).toggle($(this).text().toLowerCase().indexOf(category.toLowerCase()) > -1)
     	});
-	},500);
+	},1000);
 	
+}
+
+function minimizedCloseSearch()
+{
+	if(opened == true)
+	{
+		$("#searchSquare").addClass("oldSquareDimentions");
+		$("#searchSquare").removeClass("newSquareDimentions");
+		$("body").removeClass("noScroll");
+		$("#MainSearchBar").addClass("hide")
+		$("#MainSearchBar").removeClass("show")
+		hideDatabase();
+		opened=false;
+	}
 }
