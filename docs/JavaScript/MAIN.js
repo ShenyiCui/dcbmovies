@@ -64,8 +64,9 @@ function searchNow()
 		$("#searchSquare").removeClass("oldSquareDimentions");
 		$("body").addClass("noScroll");
 		opened = true;
+		
 	}
-	else
+	else if(opened == true)
 	{
 		$("#searchSquare").addClass("oldSquareDimentions");
 		$("#searchSquare").removeClass("newSquareDimentions");
