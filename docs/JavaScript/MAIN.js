@@ -21,7 +21,7 @@ $( document ).ready(function()
 	ScrollReveal({ reset: true });
 	ScrollReveal().reveal('.login', { delay: 500});
 	
-	ScrollReveal({ reset: true });
+	ScrollReveal({ reset: false });
 	ScrollReveal().reveal('.recentlyReleased', { delay: 500});
 	
 	$("#MainSearchBar").on("keyup", function() 
