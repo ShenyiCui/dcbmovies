@@ -22,7 +22,7 @@ $( document ).ready(function()
 	ScrollReveal().reveal('.login', { delay: 500});
 	
 	ScrollReveal({ reset: true });
-	ScrollReveal().reveal('.recentlyReleased', { delay: 1000});
+	ScrollReveal().reveal('.recentlyReleased', { delay: 500});
 	
 	$("#MainSearchBar").on("keyup", function() 
 	{
