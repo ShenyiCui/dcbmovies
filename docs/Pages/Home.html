@@ -86,7 +86,14 @@
 		  </a>
 		</div>
 		
-		<div id="searchSquare" class="b4Search"></div>
+		<div id="searchSquare" class="b4Search">
+			<center>
+				<br><br><br>
+				<input id="MainSearchBar" placeholder="Search...">
+				<br><br><br>
+				<div id="movieTableDiv"></div>
+			</center>
+		</div>
 		<br>
 		<div id="RecentlyReleased" class="container-fluid">
 			<div class="row center-block container">
@@ -140,6 +147,8 @@
 		$( document ).ready(function()
 		{
 			$("#navBar").load("../DynamicLoadHTML/mainNav.html")
+			$("#MainSearchBar").addClass("hide");
+			hideDatabase()
 			//loginInterval2();
 		});
 	</script>
