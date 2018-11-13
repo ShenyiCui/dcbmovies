@@ -21,12 +21,14 @@ $( document ).ready(function()
 	ScrollReveal({ reset: true });
 	ScrollReveal().reveal('.login', { delay: 500});
 	
-	$("#MainSearchBar").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#movieData tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
+	$("#MainSearchBar").on("keyup", function() 
+	{
+		var value = $(this).val().toLowerCase();
+		$("#movieData tr").filter(function() 
+		{
+			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		});
+  	});
 })
 
 var intervalTimer;
@@ -89,10 +91,20 @@ function searchNow()
 	}
 	
 }
+function openSearch()
+{
+	$("#searchSquare").addClass("newSquareDimentions");
+		$("#searchSquare").removeClass("oldSquareDimentions");
+		$("body").addClass("noScroll");
+		$("#MainSearchBar").addClass("show")
+		$("#MainSearchBar").removeClass("hide")
+		PopulateDatabase();
+		opened = true;
+}
 
 function PopulateDatabase()
 {
-	
+	$("#MainSearchBar").val("");
 	jQuery.get('MovieDatabase.csv', function(data) // getting the file
 	{     
 		var movie_data = data.split(/\r?\n|\r/);
@@ -138,4 +150,17 @@ function PopulateDatabase()
 function hideDatabase()
 {
 	$('#movieTableDiv').html("");
+	$("#MainSearchBar").val("");
+}
+
+function categorySearch(category)
+{
+	openSearch()
+	$("#MainSearchBar").val(category);
+	window.setTimeout(function(){
+		$("#movieData tr").filter(function() {
+			$(this).toggle($(this).text().toLowerCase().indexOf(category.toLowerCase()) > -1)
+    	});
+	},500);
+	
 }
