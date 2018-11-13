@@ -21,6 +21,9 @@ $( document ).ready(function()
 	ScrollReveal({ reset: true });
 	ScrollReveal().reveal('.login', { delay: 500});
 	
+	ScrollReveal({ reset: true });
+	ScrollReveal().reveal('.recentlyReleased', { delay: 1000});
+	
 	$("#MainSearchBar").on("keyup", function() 
 	{
 		var value = $(this).val().toLowerCase();
