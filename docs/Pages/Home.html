@@ -78,6 +78,14 @@
 			PopulateSlideShow()
 			categorySearch('')
 			minimizedCloseSearch()
+			$("#MainSearchBar").on("keyup", function() 
+			{
+				var value = $(this).val().toLowerCase();
+				$("#movieData tr").filter(function() 
+				{
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
 			//loginInterval2();
 		});
 	</script>
