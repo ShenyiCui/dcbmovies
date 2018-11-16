@@ -108,11 +108,12 @@ function openSearch()
 function PopulateDatabase()
 {
 	$("#MainSearchBar").val("");
-	jQuery.get('/dcbmovies/Pages/MovieDatabase.csv', function(data) // getting the file
+	jQuery.get('MovieDatabase.csv', function(data) // getting the file
 	{     
 		var movie_data = data.split(/\r?\n|\r/);
 		var table_data = '<table class="table table-bordered table-striped whiteColorTable table-hover">';
 		console.log(movie_data)
+		movie_data = movie_data.filter(function(v){return v!==''});
 		for(var count = 0; count<movie_data.length; count++)
 		{
 			var cell_data = movie_data[count].split(",");
@@ -132,7 +133,8 @@ function PopulateDatabase()
 				{
 					if(cell_count===3)
 					{
-						table_data += '<button onClick="self.location="/dcbmovies/Pages/Players/DefaultPlayer.html";localStorage.setItem("VideoLink",'+cell_data[cell_count]+');localStorage.setItem("VideoTitle",'+cell_data[1]+');" type="button" class="btn btn-secondary">Go To Video</button>'
+						table_data += '<td><button onClick="self.location=\'/dcbmovies/Pages/Players/DefaultPlayer.html\';localStorage.setItem(\'VideoLink\',\''+cell_data[cell_count]+'\');localStorage.setItem(\'VideoTitle\',\''+cell_data[1]+'\');" type="button" class="btn btn-secondary">Go To Video</button></td>'
+						
 					}
 					else
 					{
@@ -146,6 +148,7 @@ function PopulateDatabase()
 		table_data += '</tbody>'
 		table_data += '</table>';
 		$('#movieTableDiv').html(table_data);
+		console.log(table_data);
 	}); 
 	
 }
