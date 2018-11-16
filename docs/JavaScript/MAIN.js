@@ -132,7 +132,7 @@ function PopulateDatabase()
 				{
 					if(cell_count===3)
 					{
-						table_data += '<td><a href="/dcbmovies/Pages/Players/DefaultPlayer.html" onClick="localStorage.setItem("VideoLink",'+cell_data[cell_count]+');localStorage.setItem("VideoTitle",'+cell_data[1]+');">Go To Video</a></td>';
+						table_data += '<button onClick="self.location="/dcbmovies/Pages/Players/DefaultPlayer.html";localStorage.setItem("VideoLink",'+cell_data[cell_count]+');localStorage.setItem("VideoTitle",'+cell_data[1]+');" type="button" class="btn btn-secondary">Go To Video</button>'
 					}
 					else
 					{

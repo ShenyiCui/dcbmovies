@@ -7,7 +7,7 @@
    		<!-- Bootstrap CSS -->
    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   	   	<!--Own CSS File Main From Local Repo-->
-   		<link rel="stylesheet" href="/dcbmovies/STYLES/Main.css">
+   		<link rel="stylesheet" href="../../STYLES/Main.css">
   		<!-- Fonts from Google Fonts -->
    		<!-- Used For Paragraphs-->
    		<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700" rel="stylesheet">
@@ -43,7 +43,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/scrollreveal"></script>
 		<script src="//cdn.jsdelivr.net/npm/afterglowplayer@1.x"></script>
-		<script src="/dcbmovies/JavaScript/MAIN.js" crossorigin="anonymous"></script>
+		<script src="../../JavaScript/MAIN.js" crossorigin="anonymous"></script>
 		
 		
  	</body>
@@ -51,10 +51,10 @@
 	<script>
 		$( document ).ready(function()
 		{
-			$("#navBar").load("/dcbmovies/DynamicLoadHTML/mainNav.html")
+			$("#navBar").load("../../DynamicLoadHTML/mainNav.html")
 			$("#MainSearchBar").addClass("hide");
 			hideDatabase()
-			loginInterval2();
+			//loginInterval2();
 			PopulateVideo();
 		});
 	</script>
