@@ -184,5 +184,8 @@ function minimizedCloseSearch()
 
 function areYouHome()
 {
-	console.log(location.pathname)
+	if(location.pathname != "/dcbmovies/Pages/Home.html")
+	{
+		self.location = "/dcbmovies/Pages/Home.html"
+	}
 }
