@@ -108,7 +108,7 @@ function openSearch()
 function PopulateDatabase()
 {
 	$("#MainSearchBar").val("");
-	jQuery.get('MovieDatabase.csv', function(data) // getting the file
+	jQuery.get('/dcbmovies/Pages/MovieDatabase.csv', function(data) // getting the file
 	{     
 		var movie_data = data.split(/\r?\n|\r/);
 		var table_data = '<table class="table table-bordered table-striped whiteColorTable table-hover">';
@@ -156,7 +156,11 @@ function PopulateVideo()
 {
 	var videoHTML = '<h3 id="videoTitle">'+localStorage.getItem("VideoTitle")+'</h3><div class="video"><video controls><source src="'+localStorage.getItem("VideoLink")+'"></video></div>'
 	$("#videoContainer").html(videoHTML)
-	alert(videoHTML)
+	
+	if(localStorage.getItem("VideoTitle")==null || localStorage.getItem("VideoLink")==null)
+	{
+		$("#videoTitle").html("No Video Selected...")
+	}
 }
 function hideDatabase()
 {
