@@ -106,3 +106,7 @@ body
 {
 	position: fixed;
 }
+.column-in-center{
+    float: none;
+    margin: 0 auto;
+}
