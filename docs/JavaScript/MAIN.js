@@ -128,11 +128,11 @@ function PopulateDatabase()
 				{
 					table_data += '<th>'+cell_data[cell_count]+'</th>';
 				}
-				else
+				else 
 				{
 					if(cell_count===3)
 					{
-						table_data += '<td><a href='+cell_data[cell_count]+'>Go To Video</a></td>';
+						table_data += '<td><a href="/dcbmovies/Pages/Players/DefaultPlayer.html" onClick="localStorage.setItem("VideoLink","'+cell_data[cell_count]+'");localStorage.setItem("VideoTitle","'+cell_data[1]+'");">Go To Video</a></td>';
 					}
 					else
 					{
@@ -149,7 +149,11 @@ function PopulateDatabase()
 	}); 
 	
 }
-
+function PopulateVideo()
+{
+	var videoHTML = '<h3 id="videoTitle">'+localStorage.getItem("VideoTitle")+'</h3><div class="video"><video controls><source src="'+localStorage.getItem("VideoLink")+'"></video></div>'
+	$("#videoContainer").html(videoHTML)
+}
 function hideDatabase()
 {
 	$('#movieTableDiv').html("");
