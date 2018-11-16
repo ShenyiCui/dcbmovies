@@ -35,7 +35,7 @@
 			{
 				width: 100%;
 			}
-			.row
+		.row
 			{
 				padding-left:45px;
 			}
@@ -91,42 +91,8 @@
 			</center>
 		</div>
 		<br>
-		<div id="RecentlyReleased" class="container-fluid">
-			<div class="row center-block container load-hidden recentlyReleased">
-				<div class="col-md-1"></div>
-				<h5 class="FancyTitle col-sm-4">&nbsp;&nbsp;&nbsp;Recently Released</h5>
-			</div>
-			<div class="row container load-hidden recentlyReleased column-in-center">
-    			
-     			<a href="/dcbmovies/Pages/Players/DefaultPlayer.html"><div class="col-lg-2 col-sm-3"><img src="../Images/Posters/CNY Fest/Dulwich Chinese Short Film Festival-01.jpg"></div></a>
-     			
-   			
-    			<a href="/dcbmovies/Pages/Players/DefaultPlayer.html"><div class="col-lg-2 col-sm-3"><img src="../Images/Posters/CNY Fest/Dulwich Chinese Short Film Festival-01.jpg"></div></a>
-    			
-    			
-    			<a href="/dcbmovies/Pages/Players/DefaultPlayer.html"><div class="col-lg-2 col-sm-3"><img src="../Images/Posters/CNY Fest/Dulwich Chinese Short Film Festival-01.jpg"></div></a>
-    			
-    			
-    			<a href="/dcbmovies/Pages/Players/DefaultPlayer.html"><div class="col-lg-2 col-sm-3"><img src="../Images/Posters/CNY Fest/Dulwich Chinese Short Film Festival-01.jpg"></div></a>
-    			
-    			<a href="/dcbmovies/Pages/Players/DefaultPlayer.html"><div class="col-lg-2 col-sm-3"><img src="../Images/Posters/CNY Fest/Dulwich Chinese Short Film Festival-01.jpg"></div></a>
-    		</div>
-    		<div class="row container load-hidden recentlyReleased column-in-center">
-    			
-     			<a href="/dcbmovies/Pages/Players/DefaultPlayer.html"><div class="col-lg-2 col-sm-3"><img src="../Images/Posters/CNY Fest/Dulwich Chinese Short Film Festival-01.jpg"></div></a>
-     			
-   			
-    			<a href="/dcbmovies/Pages/Players/DefaultPlayer.html"><div class="col-lg-2 col-sm-3"><img src="../Images/Posters/CNY Fest/Dulwich Chinese Short Film Festival-01.jpg"></div></a>
-    			
-    			
-    			<a href="/dcbmovies/Pages/Players/DefaultPlayer.html"><div class="col-lg-2 col-sm-3"><img src="../Images/Posters/CNY Fest/Dulwich Chinese Short Film Festival-01.jpg"></div></a>
-    			
-    			
-    			<a href="/dcbmovies/Pages/Players/DefaultPlayer.html"><div class="col-lg-2 col-sm-3"><img src="../Images/Posters/CNY Fest/Dulwich Chinese Short Film Festival-01.jpg"></div></a>
-    			
-    			<a href="/dcbmovies/Pages/Players/DefaultPlayer.html"><div class="col-lg-2 col-sm-3"><img src="../Images/Posters/CNY Fest/Dulwich Chinese Short Film Festival-01.jpg"></div></a>
-    		</div>
-		</div>
+		<div id="RecentlyReleased" class="container-fluid"></div>
+		
 		<br><br>
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -143,6 +109,7 @@
 			$("#navBar").load("../DynamicLoadHTML/mainNav.html")
 			$("#MainSearchBar").addClass("hide");
 			hideDatabase()
+			PopulateRecent()
 			//loginInterval2();
 		});
 	</script>

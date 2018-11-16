@@ -21,8 +21,6 @@ $( document ).ready(function()
 	ScrollReveal({ reset: true });
 	ScrollReveal().reveal('.login', { delay: 500});
 	
-	ScrollReveal({ reset: false });
-	ScrollReveal().reveal('.recentlyReleased', { delay: 500});
 	
 	$("#MainSearchBar").on("keyup", function() 
 	{
@@ -162,12 +160,49 @@ function PopulateVideo()
 		$("#videoTitle").html("No Video Selected...")
 	}
 }
+function PopulateRecent()
+{
+	jQuery.get('RecentlyReleasedDatabase.csv', function(data) // getting the file
+	{     
+		var movie_data = data.split(/\r?\n|\r/);
+		var RecentRData = '<div class="row center-block container load-hidden recentlyReleased "><div class="col-lg-1 col-md-1 col-sm-1"></div><h5 class="FancyTitle col-md-4 col-lg-4 col-sm-4">&nbsp;&nbsp;&nbsp;Recently Released</h5><div class="col-lg-3 col-md-2 col-sm-2"></div><div class="col-lg-3 col-md-4 col-sm-4"></div><div class="col-lg-3 col-md-4 col-sm-4"></div></div>'
+		RecentRData += '<div class="row container load-hidden recentlyReleased column-in-center">';
+		
+		movie_data = movie_data.filter(function(v){return v!==''});
+		
+		for(var count = 1; count<movie_data.length; count++)
+		{
+			var cell_data = movie_data[count].split(",");
+			
+				
+			RecentRData += '<a href="javascript:GoToVideoRecentlyReleased(\''+cell_data[0]+'\',\''+cell_data[2]+'\')"><div class="col-lg-2 col-sm-3"><img src="'+cell_data[1]+'"></div></a>';
+			
+			if(count == 5)
+			{
+				RecentRData += '</div>'
+				RecentRData += '<div class="row container load-hidden recentlyReleased column-in-center">';
+			}
+		}
+		RecentRData += '</div>'
+		$('#RecentlyReleased').html(RecentRData);
+		console.log(RecentRData);
+		
+		ScrollReveal({ reset: false });
+			ScrollReveal().reveal('.recentlyReleased', { delay: 500});
+		}); 
+	
+}
 function hideDatabase()
 {
 	$('#movieTableDiv').html("");
 	$("#MainSearchBar").val("");
 }
-
+function GoToVideoRecentlyReleased(Title, Link)
+{
+	localStorage.setItem("VideoLink",Link)
+	localStorage.setItem("VideoTitle",Title)
+	self.location = "/dcbmovies/Pages/Players/DefaultPlayer.html"
+}
 function categorySearch(category)
 {
 	openSearch()
