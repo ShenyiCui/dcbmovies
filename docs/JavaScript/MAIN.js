@@ -106,7 +106,7 @@ function openSearch()
 function PopulateDatabase()
 {
 	$("#MainSearchBar").val("");
-	jQuery.get('/dcbmovies/Pages/MovieDatabase.csv', function(data) // getting the file
+	jQuery.get('/dcbmovies/Pages/Databases/MovieDatabase.csv', function(data) // getting the file
 	{     
 		var movie_data = data.split(/\r?\n|\r/);
 		var table_data = '<table class="table table-bordered table-striped whiteColorTable table-hover">';
@@ -162,7 +162,7 @@ function PopulateVideo()
 }
 function PopulateRecent()
 {
-	jQuery.get('RecentlyReleasedDatabase.csv', function(data) // getting the file
+	jQuery.get('Databases/RecentlyReleasedDatabase.csv', function(data) // getting the file
 	{     
 		var movie_data = data.split(/\r?\n|\r/);
 		var RecentRData = '<div class="row center-block container load-hidden recentlyReleased "><div class="col-lg-1 col-md-1 col-sm-1"></div><h5 class="FancyTitle col-md-4 col-lg-4 col-sm-4">&nbsp;&nbsp;&nbsp;Recently Released</h5><div class="col-lg-3 col-md-2 col-sm-2"></div><div class="col-lg-3 col-md-4 col-sm-4"></div><div class="col-lg-3 col-md-4 col-sm-4"></div></div>'
@@ -192,6 +192,42 @@ function PopulateRecent()
 		}); 
 	
 }
+function PopulateSlideShow()
+{
+	jQuery.get('Databases/BannersDatabase.csv', function(data) // getting the file
+	{     
+		var movie_data = data.split(/\r?\n|\r/);
+		var slideShowData = '<div id="mainPageSlide" class="carousel slide" data-ride="carousel"><ul class="carousel-indicators"><li data-target="#mainPageSlide" data-slide-to="0" class="active"></li><li data-target="#mainPageSlide" data-slide-to="1" id="dataslide1"></li><li data-target="#mainPageSlide" data-slide-to="2"></li></ul><div class="carousel-inner">';
+		
+		movie_data = movie_data.filter(function(v){return v!==''});
+		
+		for(var count = 1; count<movie_data.length; count++)
+		{
+			var cell_data = movie_data[count].split(",");
+						
+			if(count == 1)
+			{
+				slideShowData += '<div class="carousel-item active"><a href="javascript:GoToVideoRecentlyReleased(\''+cell_data[0]+'\',\''+cell_data[2]+'\')"><img src="'+cell_data[1]+'" width="1100" height="500"></a><div class="carousel-caption jumbotron d-none d-sm-block"><h3>'+cell_data[0]+'</h3><p>'+cell_data[3]+'</p></div></div>'
+			}
+			else
+			{
+				slideShowData += '<div class="carousel-item"><a href="javascript:GoToVideoRecentlyReleased(\''+cell_data[0]+'\',\''+cell_data[2]+'\')"><img src="'+cell_data[1]+'" width="1100" height="500"></a><div class="carousel-caption jumbotron d-none d-sm-block"><h3>'+cell_data[0]+'</h3><p>'+cell_data[3]+'</p></div></div>'
+			}
+		}
+		slideShowData += '</div><a class="carousel-control-prev" id="previous" href="#mainPageSlide" data-slide="prev"><span class="carousel-control-prev-icon"></span></a><a id="next" class="carousel-control-next" href="#mainPageSlide" data-slide="next"><span class="carousel-control-next-icon"></span></a></div>'
+		
+		$('#slideContainer').html(slideShowData);
+		
+		$('#next')[0].click();
+		window.setTimeout(function(){
+			$('#previous')[0].click();
+		},1500);
+		
+		console.log(slideShowData);
+	});
+}
+			   
+
 function hideDatabase()
 {
 	$('#movieTableDiv').html("");
