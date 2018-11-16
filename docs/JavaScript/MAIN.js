@@ -181,3 +181,8 @@ function minimizedCloseSearch()
 		opened=false;
 	}
 }
+
+function areYouHome()
+{
+	console.log(location.pathname)
+}

@@ -6,7 +6,7 @@
 	<div id="navbarNavDropdown" class="navbar-collapse collapse">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link ParagraphFont" href="#RecentlyReleased">Recently Released</a>
+				<a class="nav-link ParagraphFont" href="#RecentlyReleased" onClick="minimizedCloseSearch();">Recently Released</a>
 			</li>
 			<li class="nav-item dropdown">
 			  <a class="nav-link dropdown-toggle ParagraphFont" href="" id="navbardrop" data-toggle="dropdown">
@@ -27,3 +27,13 @@
 		</ul>
 	</div>
 </nav>
+
+<script>
+	$('a[href*="#"]').on('click', function (e) {
+	e.preventDefault();
+
+	$('html, body').animate({
+		scrollTop: $($(this).attr('href')).offset().top
+	}, 500, 'linear');
+});
+</script>
