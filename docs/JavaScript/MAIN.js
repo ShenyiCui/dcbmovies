@@ -107,7 +107,7 @@ function openSearch()
 function PopulateDatabase()
 {
 	$("#MainSearchBar").val("");
-	jQuery.get('Databases/MovieDatabase.csv', function(data) // getting the file
+	jQuery.get('/dcbmovies/Pages/Databases/MovieDatabase.csv', function(data) // getting the file
 	{     
 		var movie_data = data.split(/\r?\n|\r/);
 		var table_data = '<table class="table table-bordered table-striped whiteColorTable table-hover">';
