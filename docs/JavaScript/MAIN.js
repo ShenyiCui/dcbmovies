@@ -106,7 +106,7 @@ function openSearch()
 function PopulateDatabase()
 {
 	$("#MainSearchBar").val("");
-	jQuery.get('/dcbmovies/Pages/Databases/MovieDatabase.csv', function(data) // getting the file
+	jQuery.get('Databases/MovieDatabase.csv', function(data) // getting the file
 	{     
 		var movie_data = data.split(/\r?\n|\r/);
 		var table_data = '<table class="table table-bordered table-striped whiteColorTable table-hover">';
@@ -121,7 +121,7 @@ function PopulateDatabase()
 				table_data += '<tbody id="movieData">'
 			}
 		 	table_data += '<tr>';
-		 	for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+		 	for(var cell_count=1; cell_count<cell_data.length-3; cell_count++)
 			{
 				if(count === 0)
 				{
@@ -129,9 +129,9 @@ function PopulateDatabase()
 				}
 				else 
 				{
-					if(cell_count===3)
+					if(cell_count===4)
 					{
-						table_data += '<td><button onClick="self.location=\'/dcbmovies/Pages/Players/DefaultPlayer.html\';localStorage.setItem(\'VideoLink\',\''+cell_data[cell_count]+'\');localStorage.setItem(\'VideoTitle\',\''+cell_data[1]+'\');" type="button" class="btn btn-secondary">Go To Video</button></td>'
+						table_data += '<td><button onClick="self.location=\'/dcbmovies/Pages/Players/DefaultPlayer.html\';localStorage.setItem(\'VideoLink\',\''+cell_data[cell_count]+'\');localStorage.setItem(\'VideoTitle\',\''+cell_data[2]+'\');" type="button" class="btn btn-secondary">Go To Video</button></td>'
 						
 					}
 					else
@@ -162,8 +162,19 @@ function PopulateVideo()
 }
 function PopulateRecent()
 {
+	var movieIDs = []; 
 	jQuery.get('Databases/RecentlyReleasedDatabase.csv', function(data) // getting the file
 	{     
+		var idData = data.split(/\r?\n|\r/);
+		idData = idData.filter(function(v){return v!==''});
+		for(var count = 1; count<idData.length; count++)
+		{
+			var cell_data = idData[count].split(",");
+			movieIDs.push(cell_data[0].trim())
+		}
+	}); 
+	jQuery.get('Databases/MovieDatabase.csv', function(data) // getting the file
+	{
 		var movie_data = data.split(/\r?\n|\r/);
 		var RecentRData = '<div class="row center-block container load-hidden recentlyReleased "><div class="col-lg-1 col-md-1 col-sm-1"></div><h5 class="FancyTitle col-md-4 col-lg-4 col-sm-4">&nbsp;&nbsp;&nbsp;Recently Released</h5><div class="col-lg-3 col-md-2 col-sm-2"></div><div class="col-lg-3 col-md-4 col-sm-4"></div><div class="col-lg-3 col-md-4 col-sm-4"></div></div>'
 		RecentRData += '<div class="row container load-hidden recentlyReleased column-in-center">';
@@ -173,14 +184,15 @@ function PopulateRecent()
 		for(var count = 1; count<movie_data.length; count++)
 		{
 			var cell_data = movie_data[count].split(",");
-			
-				
-			RecentRData += '<a href="javascript:GoToVideoRecentlyReleased(\''+cell_data[0]+'\',\''+cell_data[2]+'\')"><div class="col-lg-2 col-sm-3"><img src="'+cell_data[1]+'"></div></a>';
-			
-			if(count == 5)
+			if(cell_data[0].trim() == movieIDs[count-1])
 			{
-				RecentRData += '</div>'
-				RecentRData += '<div class="row container load-hidden recentlyReleased column-in-center">';
+				RecentRData += '<a href="javascript:GoToVideoRecentlyReleased(\''+cell_data[2]+'\',\''+cell_data[4]+'\')"><div class="col-lg-2 col-sm-3"><img src="'+cell_data[5]+'"></div></a>';
+			
+				if(count == 5)
+				{
+					RecentRData += '</div>'
+					RecentRData += '<div class="row container load-hidden recentlyReleased column-in-center">';
+				}
 			}
 		}
 		RecentRData += '</div>'
@@ -188,13 +200,25 @@ function PopulateRecent()
 		console.log(RecentRData);
 		
 		ScrollReveal({ reset: false });
-			ScrollReveal().reveal('.recentlyReleased', { delay: 500});
-		}); 
+		ScrollReveal().reveal('.recentlyReleased', { delay: 500});
+	});
 	
 }
 function PopulateSlideShow()
 {
+	var movieIDs = []; 
 	jQuery.get('Databases/BannersDatabase.csv', function(data) // getting the file
+	{     
+		var idData = data.split(/\r?\n|\r/);
+		idData = idData.filter(function(v){return v!==''});
+		for(var count = 1; count<idData.length; count++)
+		{
+			var cell_data = idData[count].split(",");
+			movieIDs.push(cell_data[0].trim())
+		}
+	}); 
+	
+	jQuery.get('Databases/MovieDatabase.csv', function(data) // getting the file
 	{     
 		var movie_data = data.split(/\r?\n|\r/);
 		var slideShowData = '<div id="mainPageSlide" class="carousel slide" data-ride="carousel"><ul class="carousel-indicators"><li data-target="#mainPageSlide" data-slide-to="0" class="active"></li><li data-target="#mainPageSlide" data-slide-to="1" id="dataslide1"></li><li data-target="#mainPageSlide" data-slide-to="2"></li></ul><div class="carousel-inner">';
@@ -203,15 +227,18 @@ function PopulateSlideShow()
 		
 		for(var count = 1; count<movie_data.length; count++)
 		{
+			
 			var cell_data = movie_data[count].split(",");
-						
-			if(count == 1)
-			{
-				slideShowData += '<div class="carousel-item active"><a href="javascript:GoToVideoRecentlyReleased(\''+cell_data[0]+'\',\''+cell_data[2]+'\')"><img src="'+cell_data[1]+'" width="1100" height="500"></a><div class="carousel-caption jumbotron d-none d-sm-block"><h3>'+cell_data[0]+'</h3><p>'+cell_data[3]+'</p></div></div>'
-			}
-			else
-			{
-				slideShowData += '<div class="carousel-item"><a href="javascript:GoToVideoRecentlyReleased(\''+cell_data[0]+'\',\''+cell_data[2]+'\')"><img src="'+cell_data[1]+'" width="1100" height="500"></a><div class="carousel-caption jumbotron d-none d-sm-block"><h3>'+cell_data[0]+'</h3><p>'+cell_data[3]+'</p></div></div>'
+			if(cell_data[0].trim() == movieIDs[count-1])
+			{		
+				if(count == 1)
+				{
+					slideShowData += '<div class="carousel-item active"><a href="javascript:GoToVideoRecentlyReleased(\''+cell_data[2]+'\',\''+cell_data[4]+'\')"><img src="'+cell_data[6]+'" width="1100" height="500"></a><div class="carousel-caption jumbotron d-none d-sm-block"><h3>'+cell_data[2]+'</h3><p>'+cell_data[7]+'</p></div></div>'
+				}
+				else
+				{
+					slideShowData += '<div class="carousel-item"><a href="javascript:GoToVideoRecentlyReleased(\''+cell_data[2]+'\',\''+cell_data[4]+'\')"><img src="'+cell_data[6]+'" width="1100" height="500"></a><div class="carousel-caption jumbotron d-none d-sm-block"><h3>'+cell_data[2]+'</h3><p>'+cell_data[7]+'</p></div></div>'
+				}
 			}
 		}
 		slideShowData += '</div><a class="carousel-control-prev" id="previous" href="#mainPageSlide" data-slide="prev"><span class="carousel-control-prev-icon"></span></a><a id="next" class="carousel-control-next" href="#mainPageSlide" data-slide="next"><span class="carousel-control-next-icon"></span></a></div>'
