@@ -30,7 +30,8 @@ $( document ).ready(function()
 			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 		});
   	});
-})
+	
+});
 
 var intervalTimer;
 var homeIntervalTimer;
@@ -186,7 +187,7 @@ function PopulateRecent()
 			var cell_data = movie_data[count].split(",");
 			if(cell_data[0].trim() == movieIDs[count-1])
 			{
-				RecentRData += '<a href="javascript:GoToVideoRecentlyReleased(\''+cell_data[2]+'\',\''+cell_data[4]+'\')"><div class="col-lg-2 col-sm-3"><img src="'+cell_data[5]+'"></div></a>';
+				RecentRData += '<a class="overlayCard" onmouseover="setCardText(\''+cell_data[2]+'\',\''+cell_data[7]+'\')" href="javascript:GoToVideoRecentlyReleased(\''+cell_data[2]+'\',\''+cell_data[4]+'\')"><div class="col-lg-2 col-sm-3"><img src="'+cell_data[5]+'"></div></a>';
 			
 				if(count == 5)
 				{
@@ -201,6 +202,23 @@ function PopulateRecent()
 		
 		ScrollReveal({ reset: false });
 		ScrollReveal().reveal('.recentlyReleased', { delay: 500});
+		/*the function showInfo is executed on mouseover and mouseout*/
+		$('.overlayCard').hover(function(){
+			/*get the coordinates of the button element using jquery offset*/
+			var offset = $(this).offset();	
+			/*get the top Position of the info element. $(window).scrollTop() is used to calculate the right top coordinate of the button element after the window is scrolled*/
+			var topOffset = $(this).offset().top- $(window).scrollTop();
+			  /*set the position of the info element*/
+				 $(".info").css({
+					visibility: "visible",
+					position:"fixed",
+					top: (topOffset + -169)+ "px",
+					left: (offset.left + 15) + "px",
+				});
+		},function(){
+			$('.info').css({'left':-9999});
+		});
+
 	});
 	
 }
@@ -221,10 +239,15 @@ function PopulateSlideShow()
 	jQuery.get('Databases/MovieDatabase.csv', function(data) // getting the file
 	{     
 		var movie_data = data.split(/\r?\n|\r/);
-		var slideShowData = '<div id="mainPageSlide" class="carousel slide" data-ride="carousel"><ul class="carousel-indicators"><li data-target="#mainPageSlide" data-slide-to="0" class="active"></li><li data-target="#mainPageSlide" data-slide-to="1" id="dataslide1"></li><li data-target="#mainPageSlide" data-slide-to="2"></li></ul><div class="carousel-inner">';
+		var slideShowData = '<div id="mainPageSlide" class="carousel slide" data-ride="carousel"><ul class="carousel-indicators"><li data-target="#mainPageSlide" data-slide-to="0" class="active"></li>';
+		
+		for(var count = 1; count<movieIDs.length; count++)
+		{
+			slideShowData+='<li data-target="#mainPageSlide" data-slide-to="'+count+'" id="dataslide'+count+'"></li>'
+		}
+		slideShowData+='</ul><div class="carousel-inner">'
 		
 		movie_data = movie_data.filter(function(v){return v!==''});
-		
 		for(var count = 1; count<movie_data.length; count++)
 		{
 			
@@ -253,7 +276,12 @@ function PopulateSlideShow()
 		console.log(slideShowData);
 	});
 }
-			   
+
+function setCardText(Title,Description)
+{
+	var txt = '<h5 class="card-title">'+Title+'</h5><p class="card-text">'+Description+'</p>';
+	$("#cardText").html(txt);
+}
 
 function hideDatabase()
 {

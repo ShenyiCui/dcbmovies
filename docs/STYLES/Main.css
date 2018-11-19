@@ -115,3 +115,12 @@ body
     float: none;
     margin: 0 auto;
 }
+
+.info
+{
+	position:absolute;
+	visibility: hidden;
+	z-index: 10;
+	width: 300px;
+	height: 160px;
+}
